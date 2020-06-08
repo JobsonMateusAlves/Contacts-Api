@@ -67,6 +67,18 @@ module.exports = {
         if (!token) {
             return response.status(401).json({message: "Você precisa estar logado para executar esta ação."})
         }
+
+        try {
+            const invalidToken = await Invalidate.findOne({stringToken: token})
+
+            if (invalidToken) {
+                return response.status(401).json({message: "Você precisa estar logado para executar esta ação."})
+            }
+
+        } catch (error) {
+            
+            console.log(error)
+        }
         
         try {
             const payload = jwt.verify(token);
