@@ -6,6 +6,7 @@ https://www.getpostman.com/collections/7baaf7dc3e237f7a8a4a
 
 ## Autenticação 
 ### POST - Signup:
+#### Path: /signup/
 #### Headers: 
 ```
 Content-Type : "application/json"
@@ -21,6 +22,7 @@ Content-Type : "application/json"
 ```
 
 ### POST - Login:
+#### Path: /login/
 #### Headers: 
 ```
 Content-Type: "application/json"
@@ -34,8 +36,62 @@ Content-Type: "application/json"
 ```
 
 ### DELETE - Logout
+#### Path: /logout/
+#### Headers: 
+```
+token: "heDDNdoqmkqwOIJDHWdjnKDQKLWDQWdklmdqxwqkonx"
+```
+-------------------------------------------------------------------------------------------------------------
+## Contatos
+### POST - Criar contatos:
+#### Path: /contacts/
+#### Headers: 
+```
+token: "heDDNdoqmkqwOIJDHWdjnKDQKLWDQWdklmdqxwqkonx"
+Content-Type: "application/json"
+```
+#### Body: 
+```
+{
+	"name": "Exemplo Contato Alves",
+	"photo": "",
+	"email": "exemplo.contato@gmail.com",
+	"phone": "(85) 98828-1150"
+}
+```
+
+### GET - Listar contatos:
+#### Path: /contacts/
+#### Headers: 
+```
+token: "heDDNdoqmkqwOIJDHWdjnKDQKLWDQWdklmdqxwqkonx"
+```
+### GET - Detalhar contato:
+#### Path: /contacts/5eda9bda0d63b73eaf6d2873
 #### Headers: 
 ```
 token: "heDDNdoqmkqwOIJDHWdjnKDQKLWDQWdklmdqxwqkonx"
 ```
 
+### PUT - Editar contato:
+#### Path: /contacts/5eda9bda0d63b73eaf6d2873
+#### Headers: 
+```
+token: "heDDNdoqmkqwOIJDHWdjnKDQKLWDQWdklmdqxwqkonx"
+Content-Type: "application/json"
+```
+#### Body: 
+```
+{
+	"name": "Exemplo Contato Alves",
+	"photo": "",
+	"email": "exemplo.contato@gmail.com",
+	"phone": "(85) 98828-1150"
+}
+```
+### DELETE - Apagar contatos:
+#### Path: /contacts/5eda9bda0d63b73eaf6d2873
+#### Headers: 
+```
+token: "heDDNdoqmkqwOIJDHWdjnKDQKLWDQWdklmdqxwqkonx"
+```
