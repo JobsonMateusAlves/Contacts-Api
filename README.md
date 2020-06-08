@@ -41,7 +41,8 @@ Content-Type: "application/json"
 ```
 token: "heDDNdoqmkqwOIJDHWdjnKDQKLWDQWdklmdqxwqkonx"
 ```
--------------------------------------------------------------------------------------------------------------
+
+
 ## Contatos
 ### POST - Criar contatos:
 #### Path: /contacts/
