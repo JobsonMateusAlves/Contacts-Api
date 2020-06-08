@@ -5,12 +5,12 @@ Api com autenticação e CRUD de contatos.
 https://www.getpostman.com/collections/7baaf7dc3e237f7a8a4a
 
 ## Autenticação 
-#### POST - Signup:
-##### Headers: 
+### POST - Signup:
+#### Headers: 
 ```
 Content-Type : "application/json"
 ```
-##### Body: 
+#### Body: 
 ```
 {
 	"name": "Exemplo da silva",
@@ -20,12 +20,12 @@ Content-Type : "application/json"
 }
 ```
 
-#### POST - Login:
-##### Headers: 
+### POST - Login:
+#### Headers: 
 ```
 Content-Type: "application/json"
 ```
-##### Body: 
+#### Body: 
 ```
 {
 	"email": "exemplo@gmail.com",
@@ -33,8 +33,8 @@ Content-Type: "application/json"
 }
 ```
 
-#### DELETE - Logout
-##### Headers: 
+### DELETE - Logout
+#### Headers: 
 ```
 token: "heDDNdoqmkqwOIJDHWdjnKDQKLWDQWdklmdqxwqkonx"
 ```
