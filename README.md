@@ -5,9 +5,6 @@ Api com autenticação e CRUD de contatos.
 https://www.getpostman.com/collections/7baaf7dc3e237f7a8a4a
 
 ## Autenticação 
-
-### Login 
-
 #### POST - Signup:
 ##### Headers: 
 ```
