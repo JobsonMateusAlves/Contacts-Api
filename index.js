@@ -40,4 +40,4 @@ function setupUse() {
 setupDatabase()
 setupUse()
 
-app.listen(8877);
+app.listen(process.env.PORT || 3000);
