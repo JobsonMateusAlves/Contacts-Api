@@ -12,6 +12,7 @@ function setupDatabase() {
     const mongooseOptions = {
         useNewUrlParser: true,
         useUnifiedTopology: true,
+        useFindAndModify: false,
         useCreateIndex: true
     };
 
