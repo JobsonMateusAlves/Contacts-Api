@@ -5,7 +5,7 @@ module.exports = {
     async index(request, response) {
 
         try {
-            const contacts = (await Contact.find({ "userId": request.id }))
+            contacts = (await Contact.find({ "userId": request.id }))
 
             return response.json(contacts)
 
@@ -18,7 +18,7 @@ module.exports = {
     async show(request, response) {
 
         try {
-            const contact = await Contact.findOne({ "userId": request.id, "_id": request.params.id })
+            contact = await Contact.findOne({ "userId": request.id, "_id": request.params.id })
 
             if (contact) {
                 return response.json(contact)
@@ -47,8 +47,12 @@ module.exports = {
     async put(request, response) {
 
         try {
-            const contact = await Contact.findOneAndUpdate(request.params.id, {userId: request.id, ...request.body} , { new: true } )
-        
+            
+            contact = await Contact.findByIdAndUpdate(request.params.id, {userId: request.id, ...request.body},  { new: true })
+
+            // console.log({userId: request.id, ...request.body})
+            
+
             if (contact) {
                 return response.json(contact)
             }
@@ -58,6 +62,7 @@ module.exports = {
         } catch (error) {
 
             console.log("put - Contacts")
+            console.log(error)
             return response.status(400).json({message: "Algo deu errado."})
         }
     },
@@ -65,7 +70,7 @@ module.exports = {
     async delete(request, response) {
 
         try {
-            const contact = await Contact.findOneAndDelete({ "userId": request.id, "_id": request.params.id })
+            contact = await Contact.findOneAndDelete({ "userId": request.id, "_id": request.params.id })
         
             if (contact) {
                 return response.json(contact)
