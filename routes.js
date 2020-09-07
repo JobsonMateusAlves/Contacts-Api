@@ -16,4 +16,7 @@ routes.post(    "/signup",         UserController.signup);
 routes.post(    "/login",          UserController.login);
 routes.delete(  "/logout",         UserController.authenticatorMiddlewate, UserController.logout);
 
+routes.get(     "/users",          UserController.index);
+routes.delete(  "/users/:id",      UserController.delete);
+
 module.exports = routes

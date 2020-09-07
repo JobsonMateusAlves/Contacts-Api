@@ -97,5 +97,29 @@ module.exports = {
             console.log("authenticatorMiddlewate")
             return response.status(400).json({message: "Algo deu errado."})
         }
+    },
+    async index(request, response) {
+
+        try {
+            users = (await User.find())
+
+            return response.json(users)
+
+        } catch (error) {
+            console.log("index - Users")
+            return response.status(400).json({message: "Algo deu errado."})
+        }
+    },
+    async delete(request, response) {
+
+        try {
+            user = await User.findByIdAndDelete(request.params.id)
+        
+            return response.status(200).json(user)
+            
+        } catch (error) {
+            console.log("delete - Users")
+            return response.status(400).json({message: "Algo deu errado."})
+        }
     }
 }
