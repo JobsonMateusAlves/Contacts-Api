@@ -40,4 +40,25 @@ function setupUse() {
 setupDatabase()
 setupUse()
 
-app.listen(process.env.PORT || 3000);
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+var port = process.env.PORT || 3000;
+
+app.get('/chatbot', function(req, res){
+  res.sendFile(__dirname + '/Teste/index.html');
+});
+
+io.on('connection', function(socket){
+  console.log(socket.id)
+  socket.on('chat', function(msg){
+    console.log(msg)
+    io.emit('chat', msg);
+    io.emit('chat', `hehe ${msg}`);
+  });
+});
+
+http.listen(port, function(){
+  console.log('listening on *:' + port);
+});
+
+// app.listen(process.env.PORT || 3000);
