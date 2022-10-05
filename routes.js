@@ -2,6 +2,7 @@ const express = require('express');
 const routes = express.Router();
 
 const ContactController = require('./Controllers/ContactController');
+const DebugController = require('./Controllers/DebugController');
 const UserController = require('./Controllers/UserController');
 
 // Contatos
@@ -18,5 +19,8 @@ routes.delete(  "/logout",         UserController.authenticatorMiddlewate, UserC
 
 routes.get(     "/users",          UserController.index);
 routes.delete(  "/users/:id",      UserController.delete);
+
+routes.get(     "/debug", DebugController.listDebug);
+routes.post(    "/debug", DebugController.debug);
 
 module.exports = routes

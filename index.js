@@ -37,7 +37,7 @@ function setupUse() {
     app.use('/api', routes);
 }
 
-setupDatabase()
+// setupDatabase()
 setupUse()
 
 var http = require('http').Server(app);
@@ -55,6 +55,17 @@ io.on('connection', function(socket){
     io.emit('chat', msg);
     io.emit('chat', `hehe ${msg}`);
   });
+});
+
+var debug = []
+
+app.get('/debug', function(req, res){
+  res.json(debug);
+});
+
+app.post('/debug', function(req, res){
+  debug.push(req.body.debug)
+  res.json(debug);
 });
 
 http.listen(port, function(){
